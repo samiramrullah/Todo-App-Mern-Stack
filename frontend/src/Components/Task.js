@@ -1,22 +1,20 @@
-import { Card } from 'antd';
+import { Button, Card } from 'antd';
 import { useState } from 'react';
-import BasicModal from '../modal/BasicModal';
 const Task = () => {
     const gridStyle = {
         width: '100%',
     };
-    const closeModal=()=>{
-        setisModalOpen(false)
-    }
-    const [isModalOpen,setisModalOpen]=useState(false);
+    const [showedit, setshowedit] = useState(false);
     return (
         <div >
             <Card title="Remaining Task" >
-                <Card.Grid onClick={()=>setisModalOpen(true)} style={gridStyle}>Buy Laptop</Card.Grid >
-                {isModalOpen && <BasicModal isModalOpen={isModalOpen} setIsModalOpen={closeModal}/>}
+                <Card.Grid style={gridStyle}>{showedit === true ? (
+                    <input />
+                ) : (
+                    <p>Buy laptop</p>
+                )} <Button>Delete</Button> <Button onClick={()=>setshowedit(true)}>Edit</Button>  </Card.Grid >
             </Card>
         </div>
     )
 }
-
-export default Task
+export default Task;

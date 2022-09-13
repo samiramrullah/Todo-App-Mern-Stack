@@ -5,6 +5,19 @@ const Task = () => {
         width: '100%',
     };
     const [showedit, setshowedit] = useState(false);
+    const editButtonHandler=()=>{
+         if(showedit===false)
+         {
+            setshowedit(true);
+         }
+         else
+         {
+            setshowedit(false);
+         }
+    }
+    const deleteHandler=()=>{
+        window.alert('deleted')
+    }
     return (
         <div >
             <Card title="Remaining Task" >
@@ -12,7 +25,7 @@ const Task = () => {
                     <input />
                 ) : (
                     <p>Buy laptop</p>
-                )} <Button>Delete</Button> <Button onClick={()=>setshowedit(true)}>Edit</Button>  </Card.Grid >
+                )} <Button onClick={deleteHandler}>Delete</Button> <Button onClick={editButtonHandler}>{showedit===true?(<p>Save</p>):(<p>Edit</p>)}</Button>  </Card.Grid >
             </Card>
         </div>
     )

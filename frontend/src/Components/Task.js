@@ -28,19 +28,17 @@ const Task = () => {
     return (
         <div >
             <Card title="Remaining Task" >
-                <Card.Grid style={gridStyle}>{showedit === true ? (
-                    <input />
-                ) : (
+                <Card.Grid style={gridStyle}>
                     <div>
                         {alltasks && (
                             alltasks.tasks.map(itm => (
                                 <>
-                                    <p>{itm.task}</p>
+                                    <p>{showedit === true ? (<input />) : (itm.task)}</p>
                                     <Button onClick={deleteHandler}>Delete</Button> <Button onClick={editButtonHandler}>{showedit === true ? (<p>Save</p>) : (<p>Edit</p>)}</Button>  </>
                             ))
                         )}
                     </div>
-                )} </Card.Grid >
+                </Card.Grid >
             </Card>
         </div>
     )

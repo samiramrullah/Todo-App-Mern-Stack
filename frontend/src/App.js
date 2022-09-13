@@ -3,6 +3,7 @@ import {
   Input,
 } from 'antd';
 import { useState } from 'react';
+import axios from 'axios'
 import './App.css'
 const App = () => {
   const [task,settask]=useState();
@@ -14,7 +15,12 @@ const App = () => {
     }
     else
     {
-      console.log(task);
+        const data={
+          task,
+        }
+        axios.post('http://localhost:5000/task/createtask',data)
+        .then(res=>console.log(res))
+      console.log(data);
     }
   }
   return (

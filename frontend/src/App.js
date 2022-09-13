@@ -5,6 +5,7 @@ import {
 import { useState } from 'react';
 import axios from 'axios'
 import './App.css'
+import Task from './Components/Task';
 const App = () => {
   const [task,settask]=useState();
 
@@ -52,6 +53,7 @@ const App = () => {
           </div>
         </Card>
       </div>
+      <Task/>
     </div>
   )
 }
